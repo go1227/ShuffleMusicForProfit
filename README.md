@@ -1,12 +1,10 @@
 # ShuffleMusicForProfit
 Shuffles list of songs based on streaming costs
 
-
 This program is intended to read a given list of music (CSV file) and shuffle it.
-
 However, each time a song is played, the streaming service has to pay royalties/fees to the artists.
 
-Depending on how cheap/expensive the song is per play, the shuffle algorithm should provide the cheap songs first and then the more expensive ones, so the streaming service can avoid paying for the expensive songs as much as possible, by simply suppressing the expensive songs to the end of this shuffled list of songs
+Depending on how cheap/expensive the song is per play, the shuffle algorithm should provide the cheap songs first and then the more expensive ones, so the streaming service can avoid paying for the expensive songs as much as possible, by simply suppressing the expensive songs to the end of this forced "shuffled" list
 
 Example:
 List of songs: (musics UUU and XXX are more expensive, so we will only present these songs at the end of this "custom shuffle" list produced.

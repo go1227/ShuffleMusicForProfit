@@ -1,7 +1,6 @@
 __author__ = "Guilherme Ortiz"
-__version__ = "1.0"
-__date_last_modification__ = "10/17/2018"
-__python_version__ = "3"
+__version__ = "1.1"
+__date_last_modification__ = "12/22/2018"
 
 
 # This program is intended to read a given list of music (CSV file) and shuffle it.
@@ -29,6 +28,7 @@ try:
     with open('songlist.csv','r',encoding='utf-8-sig') as file:
         reader = csv.reader(file)
         fullmusiclist = list(reader)
+    file.close()
 except:
     print("The file 'songlist.csv' couldn't be found or loaded.\nExecution of program aborted.")
     exit()
@@ -43,8 +43,6 @@ def balancelist(listA, listB):
         balancelist(listA, listB)
     return listA, listB
 
-
-#fullmusiclist = sorted(fullmusiclist, key=lambda l:l[3], reverse=False)
 
 # Get all DISTINCT prices from fullmusiclist into the set "prices"
 prices = set()
@@ -65,7 +63,7 @@ shufflegroup_b = []
 
 # Allocate all song codes that have the price in Price_A list ("cheaper songs") and Price_B list ("more expensive songs")
 for i in fullmusiclist:
-    if ( float(i[3]) in prices_a):
+    if float(i[3]) in prices_a:
         #print('Adding [' + str(i[0]) + ']')
         shufflegroup_a.append(i[0])
     else:
@@ -75,7 +73,7 @@ for i in fullmusiclist:
 random.shuffle(shufflegroup_a)
 random.shuffle(shufflegroup_b)
 
-# Print full list of songs that were shuffled based on price per song (more expensive at the bottom of the list)
+# Print full list of songs that were shuffled based on price per song (more expensive always at the bottom of the list)
 shufflemusiccodes = shufflegroup_a + shufflegroup_b
 
 for i in shufflemusiccodes:
